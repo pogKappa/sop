@@ -1,0 +1,193 @@
+%% Base on http://tex.stackexchange.com/questions/150900/latex-coding-for-statement-of-purpose
+
+\documentclass{article}
+%\documentclass{aastex6}
+\usepackage[
+  a4paper,
+  margin=1in,
+  headsep=4pt, % separation between header rule and text
+]{geometry}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{tgschola}
+\usepackage{lastpage}
+%\usepackage[natbibapa]{apacite}
+\usepackage{amssymb, amsmath}
+\usepackage{comment}
+\usepackage[round]{natbib}
+\usepackage{aas_macros}
+
+
+% hyperref
+\usepackage{xcolor}
+
+
+
+
+%%% set indentation of the 1st sentence in each subsection
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{%
+  \footnotesize\sffamily
+  \yourname\quad
+  %web: \textcolor{blue}{\itshape\yourweb}\quad
+  \textcolor{blue}{\youremail}}
+\fancyfoot[C]{Page \thepage\ of \pageref{LastPage}}
+
+\newcommand{\soptitle}{Statement of Purpose}
+
+\newcommand{\yourname}{Sheng-Chieh Lin}
+\newcommand{\youremail}{r04244005@ntu.edu.tw}
+%\newcommand{\yourweb}{https://www.abcd.com/}
+
+\newcommand{\statement}[1]{\par\medskip
+  \textcolor{blue}{\textbf{#1:}}\space
+}
+
+\usepackage[
+colorlinks = true,
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = blue,
+            anchorcolor = blue,
+  breaklinks,
+  pdftitle={\yourname - \soptitle},
+  pdfauthor={\yourname},
+  unicode
+]{hyperref}
+
+\newcommand{\hhref}[3][blue]{\href{#2}{\color{#1}{#3}}}%
+
+
+\begin{document}
+
+
+\begin{center}\LARGE\soptitle\\
+\large of \yourname\ (ECE PhD applicant for Fall---2019)
+\end{center}
+
+\hrule
+\vspace{1pt}
+\hrule height 1pt
+
+\bigskip
+
+\section*{Overview}
+
+I am applying to the Carnegie Mellon University for admission to the doctoral program in astrophysics and cosmology.
+I am currently a research assistant working with Dr. \hhref{http://idv.sinica.edu.tw/teppei/}{Teppei Okumura} in Academia Sinica Institute of Astronomy and Astrophysics (ASIAA), Taiwan.
+Before that, I obtained my Master degree in the National Taiwan University (NTU) working with Dr. \href{http://idv.sinica.edu.tw/yentinglin/}{Yen-Ting Lin}, following my Bachelor degree with major in Physics in the National Cheng Kung University (NCKU).
+
+
+My research interest is observational cosmology with rich experience in Large-Scale Structure (LSS) and galaxy clusters, especially detailed modeling of the relations between galaxies and their hosting Dark Matter halos.
+In addition, I am also interested in extending my research to different topics.
+In what follows, I will briefly summarize my research experience.
+
+
+\subsection*{Mock Catalog Construction}
+
+During the course of my Master degree working with Dr. \href{http://idv.sinica.edu.tw/yentinglin/}{Yen-Ting Lin}, I constructed the realistic mock catalogs to study the properties of galaxy clusters and to validate the cluster finder.
+These results are published in \citet{2017ApJ...851..139L} and \citet{2018PASJ...70S..20O} within the framework of the Hyper Suprime-Cam (HSC) Subaru Strategic Program (HSC-SSP), a wide and deep optical imaging survey designed to map a sky area of $\approx1400$~deg$^2$.
+
+
+The first mock catalog I built is to attest the cross-correlation methods that are used to estimate the stacked properties of cluster galaxies in \citet{2017ApJ...851..139L}.
+To build this catalog, we derived the stellar mass and the HSC $grizY$ five-band photometry of the mock galaxies that are extracted from the public MICE simulation \citep{2015MNRAS.453.1513C}, for which the galaxies are populated into halos using the combination of the Halo Occupation Distribution (HOD) model and the Sub-Halo Abundance Matching (SHAM) technique.
+Applying the same stacking analyses on the mock catalog I created, we find that our analysis pipeline can recover the input parameters of the mock construction, suggesting that our result is unbiased.
+
+%we found that the results recover the underlying properties of galaxies fairly well, meaning that the analyses are well-grounded.
+%We verified that the methods are capable of recovering intrinsic properties of mock galaxies, and further providing reasonable estimations of observation data.
+%I verified the capability of the analyses which recover the intrinsic properties of mock galaxies could provide reasonable estimations of observation data.
+%I verified the capability of recovering the intrinsic properties of mock galaxies by the methods could provide reasonable analyses on observation data.
+
+
+%In order to match up observational condition, I applied the bootstrap re-sampling method to randomly populate comparable numbers of bright star to mask out galaxies and imitated the visit of pointing of HSC survey to create irrgular boundaries.
+
+
+I also constructed the mock catalogs to validate the cluster finder, the Cluster-finding Algorithm based on Multi-band Identification of Red-sequence gAlaxies \citep[CAMIRA][]{2014MNRAS.444..147O}, which is run on the HSC survey producing a catalog of $\approx 2000$ clusters with mass $M_{200\mathrm{m}} \gtrsim 10^{14} h^{-1}M_{\odot}$ at redshift $0.1<z<1.1$.
+To construct the mock catalogs, I populated the cluster galaxies into the simulated halos extracted from the \citet{2010ApJ...709..920S} simulation, by selecting the members of the CAMIRA cluster that is closest to the halo in term of mass and redshift.
+These mock clusters are then injected into the COSMOS field to mimic the various observational systematics in the images, followed by the identical run of the CAMIRA cluster finder to access the performance.
+The results show that the CAMIRA cluster finder delivers a high-quality sample, which the completeness and purity are both high ($\gtrsim90\%$), for clusters with $M_{200\mathrm{m}} \gtrsim 10^{14} h^{-1}M_{\odot}$ out to high redshift $z\approx1.2$.
+
+%with the richness above 15 regardless of redshift and, moreover, the completeness at the high-mass end ($M_{200\mathrm{m}} \gtrsim 10^{14} h^{-1}M_{\odot}$) is also excellent ($\gtrsim90\%$).
+
+% the purity of the is high ($>0.9$) regardless of mass and redshift and the completeness is reasonable high ($>0.9$) at high mass end ($M_{200m} \gtrsim 10^{14} h^{-1}M_{\odot}$) but significantly depends on redshift.
+
+I stress that the mock catalogs I created provide the crucial ingredients in \citet{2017ApJ...851..139L} and \citet{2018PASJ...70S..20O}, because they provide an end-to-end validation of our results.
+
+\subsection*{Modeling of Proto-clusters}
+
+I also study how proto-clusters evolve into galaxy clusters by generating the mock catalogs.
+Specifically, I generated the mock catalog of proto-clusters by populating galaxies, using the the HOD model from \citet{2018PASJ...70S..11H}, into the dark matter halos from a early snapshot ($z\approx4$) of the TAO N-body cosmological simulation \citep{2016ApJS..223....9B}.
+In addition, the luminosities are then statistically assigned to the galaxies based on the Luminosity Function from \citet{2015ApJ...803...34B} according to the subhalo abundance matching technique.
+I then computed the two-point auto-correlation function of these mock galaxies, successfully recovering the clustering profile out to the angular radius of $\approx0.3$~deg.
+This suggests that the spatial distribution of the mock galaxies inside the proto-clusters at $z\approx4$ is properly sampled and is consistent with the current observations.
+Ideally, next step is to combine these mock catalogs with the merger history from the halo simulation to track the evolution of the proto-clusters, as well as predict their descendants.
+
+
+
+
+
+%In order to study the evolutionary history between galaxy clusters and their progenitors, I generated a mock catalog of proto-clusters by following the HOD parameters found by \citet{2018PASJ...70S..11H} to populate galaxies into the dark matter halos from a early snapshot ($z\approx4$) of the TAO cosmological simulation (\citealt{2016ApJS..223....9B}).
+%Following the Luminosity Function derived by \citet{2015ApJ...803...34B}, the luminosities are then assigned to the simulated galaxies according to the mass of their host halos by the sub-halo matching technique which allows us to statistically define a cumulative function that best describes the relation between galaxy luminosity and halo mass.
+%By comparing the auto-correlation function of mock galaxies with that of observations, the mock is able to reproduce the observed clustering out to a radius of $10^3$ arcsec distant from the center of halos, showing that it reasonably replicates the spatial distribution of galaxies to the scale of a typical cluster at high redshift.
+%Though there are more careful treatments need to be taken into account, such as including the scatter of luminosity, as well as calibrating the simulated clustering against observations at different depth, the construction of the mock is still economic compared to hydrodynamic simulations.
+%Ideally, we can combine the mock catalog with the merger history of the halo simulation to trace the evolution of the proto-clusters, as well as predict their descendants. Reversely, we may compare the ``product'' of mock proto-clusters with observations to infer the ancestor of todays clusters.
+
+
+
+
+
+
+%In order to study proto-clusters at high redshift $4.0<z<5.0$, I constructed the mock catalog by populating the Lyman-Break Galaxies into the lightcone built from the Theoretical Astronomy Observatory (TAO) simulation.
+%More specifically, the mock LBGs, which luminosity is given by Bouwens' Luminosity Function (\citealt{2015ApJ...803...34B}), are populated into halos by the HOD model in \citet{2018PASJ...70S..11H}.
+%From comparing mock galaxies and observation data, the result shows that the construction is capable of reproducing observed clustering and luminosity.
+
+
+
+\subsection*{Clustering of galaxies in the HSC Survey}
+
+Currently, I am actively working on measuring the halo clustering of the Luminous Red Galaxies (LRGs) from the HSC survey using the HOD approach.
+%by adopting a HOD fitting on the Luminous Red Galaxies from the HSC database in order to obtain better constraints on galaxy-halo relations.
+Taking advantage of the HSC survey with the deep imaging in a wide coverage, we expect that this result can deliver the unprecedented constraints of the Large-Scale Structure out to redshift $z\approx1.2$ from the observational side.
+
+%in the sense of deep optical images ($r_{\mathrm{lim}}\sim26$mag) covering a wide area of the sky ($\approx 200$~deg$^2$), we may expect to observe the Large-Scale Structure and the environmental variations of the HOD out to redshift $z=1.2$.
+
+\section*{Purpose}
+
+The reason I would like to apply to CMU is because of its rich resources and its access to various observatories, which allow me to broaden my research experience.
+First, from the observational perspective, CMU is involved in several first-line surveys, such as the Extended Baryon Oscillation Spectroscopic Survey (eBOSS), the Dark Energy Survey (DES), and the Large Synoptic Survey Telescope (LSST), providing both spectroscopic and photometric observations to conduct cosmological analyses.
+Second, CMU hosts unique access to the computational resources, such as the Mcwilliams Center For Cosmology, allowing multifarious cosmological simulations to be carried out.
+%The clustering in which I am interested has also been applied to statistically study spacial distributions of DM halos in simulations.
+I am confident that I would be able to make a positive contribution to the research in CMU with my research experience.
+
+%%%
+%%% COMMENT
+%%%
+\begin{comment}
+In my previous work, I built two types of mock galaxy catalogs with my formal advisor, Yen-Ting Lin, for the purposes of studying the assembly properties of galaxy clusters and validating a cluster-finding algorithm, respectively. 
+In modern days, numerous galaxy simulations have been conducted, with aims of understanding connections between theory and observations.
+Keeping the same goal in mind, we extracted a large volume of galaxy samples from a publicly available mock catalog, the MICE  Grand Challenge Lightcone simulation, which galaxies are produced by a hybrid recipe of Halo Occupation Distribution (HOD) modeling and Sub-Halos Abundance Matching (SHAM) technique.
+By the Spectral Energy Distribution (SED) fitting, We calculated stellar masses of galaxies and derived photometry of Hyper Sprime Cam (HSC) Subaru Strategy Program \textit{grizy}-band.
+Combining with the dark matter (DM) halo information from simulation itself, we are further able to study statistical properties between DM halos and galaxies, and our results are presented in Lin et al. 2017.
+
+Alternatively, mock catalogs could also serve for the purpose of validation of cluster finding algorithms. We created a set of unique mock catalogs using truly observed galaxies in the HSC footprint in order to validate a cluster finding algorithm, the Cluster-finding Algorithm
+based on Multi-band Identification of Red-sequence gAlaxies (CAMIRA), which is based on optically selecting method. In a nutshell, we selected cluster galaxies from HSC survey and populated them into a lightcone from DM simulation. We performed COSMOS-like mock catalogs, and they had been used for testing CAMIRA. As a result, the completeness of mocks is high ($> 0.9$) where cluster mass ($M_{200c}$) is greater than $10^{14} M_\odot$. The quantitative results are shown in Oguri et al. 2018. Ultimately, mock catalogs have many aspects of utility, extended from testing or calibrating observation systematics to studying statistical properties of galaxies and DM halos. Working on this topic has given me a concrete foundation of statistical analysis of galaxy samples, and has piqued my strong interest in conducting research on cosmology, especially in studying Large Scale Structure (LSS).
+
+Recently, I am working on clustering properties of galaxies by adopting HOD modeling to Luminous Red Galaxies (LRGs) from the HSC survey. Briefly speaking, the HSC survey is an ambitious optical survey with high image quality ($<~0.7''$) and large field of view (FOV, $1.8$ deg$^2$), providing us grizy-band as well as three narrow bands photometry. In particular, I am interested in the clustering of galaxies evolving through time, and with the superiority of HSC data, we can ideally probe farther than $z=1$. Upon that, studying clustering of galaxies solidifies my knowledge of correlations between halos and galaxies, and again, strengthens my interest in observational cosmology. However, I am also open-minded to multifarious topics in astrophysics, and would not limit myself from any aspect of research.
+
+With the goal of being a comprehensive researcher in mind, CMU is the perfect place where I am able to polish and refine my skills and knowledge. First, in the observation aspect, huge volumes of data are the key component of conducting research on cosmology. Excitingly, CMU is involved in several surveys, such as the Extended Baryon Oscillation Spectroscopic Survey (eBOSS), the Dark Energy Survey (DES), the Large Synoptic Survey Telescope (LSST), providing both excellent spectroscopic and photometric data to conduct cosmological analyses. Cosmological simulations have taken place in decades and have played important roles in connecting theory and observations. CMU has its own unique advantage of assessment of powerful computational resources, such as the Mcwilliams Center For Cosmology. The clustering in which I am interested has also been applied to statistically study spacial distributions of DM halos in simulations. I am confident that in CMU I would be able to wisely make use of resources and make a prominent contribution to the research atmosphere.
+
+\end{comment}
+
+\newpage
+%\bibliographystyle{apacite}
+\bibliographystyle{abbrvnat}
+\bibliography{full_2.bib}
+
+
+\end{document}
+
+enter image description here
